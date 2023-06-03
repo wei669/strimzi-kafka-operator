@@ -306,6 +306,11 @@ spec:
                                 loadBalancerIP:
                                   type: string
                                   description: The loadbalancer is requested with the IP address specified in this field. This feature depends on whether the underlying cloud provider supports specifying the `loadBalancerIP` when a load balancer is created. This field is ignored if the cloud provider does not support the feature.This field can be used only with `loadbalancer` type listener.
+                                externalIPs:
+                                  type: array
+                                  items:
+                                    type: string
+                                  description: External IPs to the resource.
                                 annotations:
                                   x-kubernetes-preserve-unknown-fields: true
                                   type: object
@@ -338,6 +343,11 @@ spec:
                                   loadBalancerIP:
                                     type: string
                                     description: The loadbalancer is requested with the IP address specified in this field. This feature depends on whether the underlying cloud provider supports specifying the `loadBalancerIP` when a load balancer is created. This field is ignored if the cloud provider does not support the feature.This field can be used only with `loadbalancer` type listener.
+                                  externalIPs:
+                                    type: array
+                                    items:
+                                      type: string
+                                    description: External IPs to the resource.
                                   annotations:
                                     x-kubernetes-preserve-unknown-fields: true
                                     type: object
