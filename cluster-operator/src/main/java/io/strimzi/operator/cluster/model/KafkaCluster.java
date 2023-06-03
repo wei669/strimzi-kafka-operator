@@ -703,7 +703,7 @@ public class KafkaCluster extends AbstractStatefulModel implements SupportsMetri
             }
 
             if (KafkaListenerType.LOADBALANCER == listener.getType() || KafkaListenerType.NODEPORT == listener.getType()) {
-                List<String> eip = ListenersUtils.brokerExternalIPs(listener, pod);
+                List<String> eip = ListenersUtils.bootstrapExternalIPs(listener);
                 if (eip != null && !eip.isEmpty()) {
                     service.getSpec().setExternalIPs(eip);
                 }
@@ -783,7 +783,7 @@ public class KafkaCluster extends AbstractStatefulModel implements SupportsMetri
                 }
 
                 if (KafkaListenerType.LOADBALANCER == listener.getType() || KafkaListenerType.NODEPORT == listener.getType()) {
-                    List<String> eip = ListenersUtils.bootstrapExternalIPs(listener);
+                    List<String> eip = ListenersUtils.brokerExternalIPs(listener, nodeId);
                     if (eip != null && !eip.isEmpty()) {
                         service.getSpec().setExternalIPs(eip);
                     }
